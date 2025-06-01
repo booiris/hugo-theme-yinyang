@@ -42,21 +42,26 @@
   {{ end }}
 
   {{ with resources.Get "css/index.css" | minify }}
-    <style>{{ .Content | safeCSS }}</style>
+  <link rel="stylesheet" href="{{ .RelPermalink }}">
   {{ end }}
   {{ with resources.Get "css/flexboxgrid-6.3.1.min.css" | minify }}
-    <style>{{ .Content | safeCSS }}</style>
+  <link rel="stylesheet" href="{{ .RelPermalink }}">
   {{ end }}
 
   {{ range .Site.Params.extraCSSFiles -}}
   <link rel="stylesheet" href="{{ $.Site.Params.staticPrefix }}{{ . | relURL }}">
   {{- end }}
 
-  <link href="{{ .Site.Params.staticPrefix }}{{ "index.xml" | relURL }}" rel="alternate" type="application/rss+xml"
+  <link href="{{ .Site.Params.staticPrefix }}{{ " index.xml" | relURL }}" rel="alternate" type="application/rss+xml"
     title="{{ .Site.Title }}">
   <!-- fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Bungee+Shade" rel="stylesheet">
+
+  {{ if or .Params.mathjax .Params.katex }}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  {{ end }}
+
   <!-- quicklink require -->
   <!-- <script>
     /* Disable minification (remove `.min` from URL path) for more info 

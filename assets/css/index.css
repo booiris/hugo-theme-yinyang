@@ -59,7 +59,7 @@ a:hover {
 
 /* reset code */
 
-.markdown-body pre > code {
+.markdown-body pre>code {
   padding: 0;
   font-size: 100%;
   background-color: inherit;
@@ -79,17 +79,19 @@ a:hover {
 }
 
 .header-title {
-  font-size: 2rem;
+  font-size: 2.8rem;
   font-weight: bold;
   margin-top: 32px;
   font-family: "Bungee Shade", sans-serif;
 }
+
 .header-title a {
   text-decoration: none;
 }
 
 .header-subtitle {
   color: #666;
+  font-size: 1.2rem;
 }
 
 .header-items {
@@ -267,6 +269,7 @@ a:hover {
 }
 
 @media screen and (max-width: 600px) {
+
   .header-title,
   .header-subtitle,
   .header-items {
@@ -280,12 +283,15 @@ a:hover {
   .markdown-body {
     font-size: 16px;
   }
+
   .post-title {
     font-size: 2rem;
   }
+
   .post-content p {
     letter-spacing: 0.05em;
   }
+
   .post-content .post-gallery img {
     width: 100%;
   }
@@ -295,4 +301,12 @@ a:hover {
   .posts-category {
     display: none;
   }
+}
+
+code {
+  font-family: "Fira Mono", sans-serif;
+}
+
+pre {
+  background-color: #f9f9f9 !important;
 }
